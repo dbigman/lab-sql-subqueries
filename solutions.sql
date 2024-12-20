@@ -83,6 +83,25 @@ WHERE
         )
     );
 
+-- with joins
+SELECT 
+    c.first_name AS `First Name`,
+    c.last_name AS `Last Name`,
+    c.email AS `Email`
+FROM 
+    customer c
+JOIN 
+    address a ON c.address_id = a.address_id
+JOIN 
+    city ci ON a.city_id = ci.city_id
+JOIN 
+    country co ON ci.country_id = co.country_id
+WHERE 
+    co.country = 'Canada';
+
+
+
+
 
 
 -- Which are films starred by the most prolific actor? 
